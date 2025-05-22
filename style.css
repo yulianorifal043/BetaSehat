@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap'); /* Menggunakan Poppins */
+
+body {
+    font-family: 'Poppins', sans-serif; /* Mengganti font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5; /* Latar belakang abu-abu terang */
+    margin: 0;
+    padding: 20px; /* Tambahkan padding untuk responsivitas di layar kecil */
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar elemen */
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px; /* Lebih bulat seperti di gambar */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Bayangan lebih kuat dan menyebar */
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    overflow: hidden; /* Pastikan konten tidak meluber */
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 25px; /* Sedikit lebih banyak ruang */
+    font-size: 1.8em;
+    font-weight: 700; /* Lebih tebal */
+}
+
+p {
+    color: #555;
+    line-height: 1.6;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600; /* Lebih tebal */
+    color: #333;
+    text-align: left;
+    font-size: 1.1em;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: calc(100% - 22px); /* Sesuaikan sedikit */
+    padding: 12px; /* Lebih banyak padding */
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0; /* Border lebih terang */
+    border-radius: 10px; /* Lebih bulat */
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9; /* Latar belakang input sedikit abu-abu */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #59d1a8; /* Hijau tosca saat fokus */
+    box-shadow: 0 0 0 3px rgba(89, 209, 168, 0.2); /* Efek bayangan saat fokus */
+}
+
+button {
+    background-color: #59d1a8; /* Hijau tosca sesuai logo KlikDiabetes */
+    color: white;
+    padding: 14px 30px; /* Lebih besar */
+    border: none;
+    border-radius: 10px; /* Lebih bulat */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 600; /* Lebih tebal */
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(89, 209, 168, 0.3); /* Bayangan tombol */
+}
+
+button:hover {
+    background-color: #4CAF50; /* Sedikit lebih gelap saat hover */
+    transform: translateY(-2px); /* Efek sedikit mengangkat */
+}
+
+button:active {
+    transform: translateY(0); /* Kembali saat diklik */
+}
+
+/* Gaya untuk bagian data diri */
+#data-diri-section label {
+    text-align: left; /* Biar label rata kiri */
+    width: 100%;
+}
+
+/* Gaya untuk pertanyaan di screening */
+#questions-container .question-item {
+    margin-bottom: 25px; /* Ruang antar pertanyaan */
+    padding: 20px;
+    background-color: #ffffff; /* Latar belakang putih untuk setiap item pertanyaan */
+    border-radius: 15px; /* Sudut lebih bulat */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Bayangan untuk setiap kartu pertanyaan */
+    text-align: left; /* Rata kiri untuk teks pertanyaan */
+}
+
+#questions-container .question-item p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+#questions-container input[type="radio"] {
+    margin-right: 10px;
+    vertical-align: middle; /* Pastikan radio button sejajar dengan teks */
+    transform: scale(1.2); /* Memperbesar radio button */
+    accent-color: #59d1a8; /* Warna radio button saat terpilih */
+}
+
+#questions-container label[for^="riwayat-keluarga-"], /* Target label untuk radio button */
+#questions-container label[for^="gaya-hidup-"],
+#questions-container label[for^="aktivitas-fisik-"],
+#questions-container label[for^="berat-badan-"],
+#questions-container label[for^="gejala-awal-"] {
+    display: inline-block; /* Agar teks label tidak menjadi blok penuh */
+    margin-right: 20px; /* Ruang antar pilihan */
+    margin-bottom: 10px;
+    font-weight: 400; /* Normal weight untuk teks pilihan */
+    color: #555;
+    cursor: pointer;
+    background-color: transparent; /* Hilangkan background f9f9f9 */
+    padding: 0; /* Hilangkan padding */
+    border: none; /* Hilangkan border */
+    border-radius: 0; /* Hilangkan border-radius */
+    transition: color 0.2s ease;
+}
+
+#questions-container label[for^="riwayat-keluarga-"]:hover,
+#questions-container label[for^="gaya-hidup-"]:hover,
+#questions-container label[for^="aktivitas-fisik-"]:hover,
+#questions-container label[for^="berat-badan-"]:hover,
+#questions-container label[for^="gejala-awal-"]:hover {
+    color: #59d1a8; /* Warna hijau tosca saat hover */
+}
+
+
+#diagnosis-result {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #e6f7f2; /* Latar belakang hijau muda */
+    border: 1px solid #b3e0cf; /* Border hijau muda */
+    border-radius: 15px; /* Lebih bulat */
+    color: #2e8b57; /* Warna teks hijau gelap */
+    font-weight: 700; /* Lebih tebal */
+    font-size: 1.2em;
+    text-align: center;
+}
+
+#health-tips {
+    text-align: left;
+    margin-top: 25px;
+    background-color: #f5fbf6; /* Latar belakang sangat muda */
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #e0e6e1; /* Border abu-abu muda */
+    color: #444;
+    font-size: 0.95em;
+    line-height: 1.8;
+}
+
+#health-tips ul {
+    list-style-type: disc; /* Menggunakan bullet point */
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+#health-tips li {
+    margin-bottom: 8px;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+    margin-top: 30px;
+    background-color: #ffffff; /* Latar belakang grafik putih */
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Bayangan pada grafik */
+}
+
+/* --- Gaya Baru untuk Asisten dan Sapaan Personal --- */
+.assistant-greeting {
+    display: flex; /* Untuk menata gambar dan teks sejajar */
+    align-items: center; /* Pusatkan secara vertikal */
+    gap: 15px; /* Jarak antara gambar dan teks */
+    background-color: #f0f7f5; /* Latar belakang ringan untuk bagian sapaan */
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px; /* Jarak dengan elemen berikutnya */
+    text-align: left; /* Teks di dalamnya rata kiri */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.assistant-image {
+    width: 80px; /* Ukuran gambar asisten */
+    height: 80px;
+    border-radius: 50%; /* Membuat gambar bulat jika diinginkan, atau hapus jika kotak */
+    object-fit: cover; /* Pastikan gambar mengisi area tanpa terdistorsi */
+    flex-shrink: 0; /* Mencegah gambar menyusut */
+}
+
+.assistant-greeting p {
+    margin: 0; /* Hilangkan margin default paragraf */
+    font-size: 1.1em;
+    color: #333;
+    flex-grow: 1; /* Biarkan teks mengisi sisa ruang */
+}
+
+.assistant-greeting p:first-of-type { /* Untuk "Hai, Rifal!" */
+    font-weight: 600; /* Lebih tebal */
+    font-size: 1.2em;
+}
+
+/* Responsivitas dasar */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    #questions-container label[for^="riwayat-keluarga-"],
+    #questions-container label[for^="gaya-hidup-"],
+    #questions-container label[for^="aktivitas-fisik-"],
+    #questions-container label[for^="berat-badan-"],
+    #questions-container label[for^="gejala-awal-"] {
+        display: block; /* Tampilkan dalam baris terpisah di layar kecil */
+        margin-bottom: 8px;
+        margin-right: 0;
+    }
+
+    .assistant-greeting {
+        flex-direction: column; /* Tumpuk gambar dan teks di layar kecil */
+        text-align: center;
+    }
+
+    .assistant-image {
+        margin-bottom: 10px; /* Jarak antara gambar dan teks saat ditumpuk */
+    }
+}
